@@ -8,18 +8,9 @@ import {
   RevenueChartSkeleton,
 } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
-import { fetchCardData, fetchLatestInvoices } from '../../lib/data';
 import CardWrapper from '../../ui/dashboard/cards';
 
 export default async function Page() {
-  const latestInvoices = await fetchLatestInvoices();
-  const {
-    totalPaidInvoices,
-    totalPendingInvoices,
-    numberOfCustomers,
-    numberOfInvoices,
-  } = await fetchCardData();
-
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
