@@ -5,20 +5,50 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
+function generateMessages(message: string) {
+  return {
+    invalid_type_error: message,
+    required_error: message,
+  };
+}
+
 const FormSchema = z.object({
   id: z.string(),
-  customerId: z.string(),
-  amount: z.coerce.number(),
-  status: z.enum(['pending', 'paid']),
+  customerId: z.string(generateMessages('Please select a customer.')),
+  amount: z.coerce
+    .number()
+    .gt(0, { message: 'Please enter a number greater than $0.' }),
+  status: z.enum(
+    ['pending', 'paid'],
+    generateMessages('Please select an invoice status.'),
+  ),
   date: z.string(),
 });
 
+export type State = {
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
+
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
-export async function createInvoice(formData: FormData) {
+export async function createInvoice(prevState: State, formData: FormData) {
   const rawFormData = Object.fromEntries(formData.entries());
 
-  const { amount, customerId, status } = CreateInvoice.parse(rawFormData);
+  const result = CreateInvoice.safeParse(rawFormData);
+
+  if (!result.success) {
+    return {
+      errors: result.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Invoice.',
+    };
+  }
+
+  const { customerId, amount, status } = result.data;
 
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
