@@ -2,7 +2,6 @@
 
 import { createInvoice } from '@/app/lib/actions';
 import { CustomerField } from '@/app/lib/definitions';
-import { Button } from '@/app/ui/button';
 import { useFormState } from 'react-dom';
 import { InvoicesForm } from './invoices-form';
 
@@ -16,7 +15,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
       customers={customers}
       formAction={dispatch}
       state={state}
-      SubmitButton={<Button type="submit">Create Invoice</Button>}
+      submitButtonLabel={'Create Invoice'}
     />
   );
 }

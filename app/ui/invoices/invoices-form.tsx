@@ -7,19 +7,20 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { Button } from '../button';
 
 type InvoicesFormProps = {
   customers: CustomerField[];
   formAction: (payload: FormData) => void;
   state: State;
-  SubmitButton: JSX.Element;
+  submitButtonLabel: string;
 };
 
 export function InvoicesForm({
   customers,
   state,
   formAction,
-  SubmitButton,
+  submitButtonLabel,
 }: InvoicesFormProps) {
   return (
     <form action={formAction}>
@@ -141,7 +142,7 @@ export function InvoicesForm({
         >
           Cancel
         </Link>
-        {SubmitButton}
+        <Button type="submit">{submitButtonLabel}</Button>
       </div>
     </form>
   );
