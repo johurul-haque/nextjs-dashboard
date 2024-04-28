@@ -19,6 +19,7 @@ export default function EditInvoiceForm({
 
   return (
     <InvoicesForm
+      invoice={invoice}
       customers={customers}
       formAction={dispatch}
       state={state}
