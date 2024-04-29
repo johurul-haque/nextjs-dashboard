@@ -17,10 +17,6 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 Also, I learned how to redirect, handle authentication using NextAuth, secure routes using the middleware.ts file, and more.
 
-Key takeaway: *Behind the scenes, Server Actions create a `POST` API endpoint.*
-
-[Read more](https://nextjs.org/learn/dashboard-app/mutating-data#:~:text=Behind%20the%20scenes%2C%20Server%20Actions%20create%20a%20POST%20API%20endpoint.%20This%20is%20why%20you%20don%27t%20need%20to%20create%20API%20endpoints%20manually%20when%20using%20Server%20Actions.)
-
 ## Getting Started
 - Install dependencies using `pnpm install`
 - Rename `.env.example` to `.env`
