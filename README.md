@@ -19,6 +19,9 @@ Also, I learned how to redirect, handle authentication using NextAuth, secure ro
 
 Key takeaway: *Behind the scenes, Server Actions create a `POST` API endpoint.*
 
+## Getting Started
+Follow the [course guidelines](https://nextjs.org/learn/dashboard-app/getting-started)
+
 ## Login credentials
 - Email: `user@nextmail.com`
 - Password: `123456`
