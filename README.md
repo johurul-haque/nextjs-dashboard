@@ -15,7 +15,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 - Handling errors gracefully using `error.tsx` and `notFound`.
 - Adding metadata: types of metadata, adding open graph image, favicon, and creating template metadata title.
 
-Also, I learned how to redirect, handle authentication using NextAuth, secure routes using the middleware.ts file, and more.
+Also, I learned how to redirect, handle authentication using NextAuth, secure routes using the `middleware.ts` file, and more.
 
 ## Getting Started
 - Install dependencies using `pnpm install`
