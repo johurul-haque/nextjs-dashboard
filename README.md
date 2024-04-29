@@ -1,4 +1,4 @@
-## App Router Course Project
+## Learn Next.js Course Project
 
 The dashboard application was a code-along project and was built using Next 14.
 
